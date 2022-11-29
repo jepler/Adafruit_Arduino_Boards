@@ -271,10 +271,10 @@ unsigned char TinyM_USI_TWI_Master_Transfer( unsigned char temp )
            (1<<USITC);                              // Toggle Clock Port.
   do
   { 
-	_delay_us(T2_TWI);
+    _delay_us(T2_TWI);
     USICR = temp;                          // Generate positve SCL edge.
     while( !(PIN_USI & (1<<PIN_USI_SCL)) );// Wait for SCL to go high.
-	_delay_us(T4_TWI);
+    _delay_us(T4_TWI);
     USICR = temp;                          // Generate negative SCL edge.
   }while( !(USISR & (1<<USIOIF)) );        // Check for transfer complete.
   
